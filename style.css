@@ -1,0 +1,120 @@
+body {
+    margin: 0 auto;
+    justify-content: center;
+    width: 90%;
+}
+header {
+    display: flex;
+    margin-top: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    border: thin solid rgb(189, 189, 189);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+header > div:nth-child(1) {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 10px;
+}
+
+header > div:nth-child(1) a {
+    text-decoration: none;
+    align-self: center;
+    color: rgb(72, 135, 253);
+}
+
+header > div:nth-child(1) a.btn {
+    color: white;
+    padding: 8px 13px;
+}
+
+header > div:nth-child(1) a:first-child:hover {
+    background: rgb(52, 98, 182);
+}
+
+header > div:last-of-type {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+#search {
+    color: grey;
+}
+
+.btn {
+    background: rgb(72, 135, 253);
+    border: none;
+    color: white;
+    border-radius: 5px;
+}
+
+
+
+.gallery {
+    display: grid;
+    margin-top: 10px;
+    width: auto;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(4, 100px);
+    grid-template-areas:
+            "img1 img2 img3"
+            "img1 img2 img3"
+            "img1 img2 img4"
+            "img5 img5 img4";
+}
+
+.gallery > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.gallery > #main-img1 { 
+    grid-area: img1; 
+}
+.gallery > #main-img2 { 
+    grid-area: img2; 
+}
+.gallery > #main-img3 { 
+    grid-area: img3; 
+}
+.gallery > #main-img4 { 
+    grid-area: img4; 
+}
+.gallery > #main-img5 { 
+    grid-area: img5; 
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    header > div:nth-child(1) {
+        grid-template-columns: repeat(2, 1fr);
+        text-align: center;
+        row-gap: 10px;
+    }
+
+    header > div:last-child {
+        margin: 0 auto;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(1,1fr);
+        grid-template-rows: none;
+        grid-template-areas:
+            "img1"
+            "img2"
+            "img3"
+            "img4"
+            "img5";
+    }
+}
+
+
