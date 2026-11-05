@@ -168,25 +168,25 @@ main, .right-section, .left-section {
 }
 
 .topic > img {
-    flex: 0 0 30%;
+    flex: 0 1 30%;
     height: 150px;
     object-fit:cover;
 }
 
 .topic div {
-    flex: 0 0 69%;
+    flex: 0 1 69%;
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
 .topic div .btn, .small-topic .btn {
-    align-self: self-start;
+    align-self: start;
     border: 2px solid black;
 }
 
 .topic:last-of-type div .btn, .small-topic:first-of-type .btn  {
-    align-self: self-end;
+    align-self: end;
 }
 
 .small-topic {
