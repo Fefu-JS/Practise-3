@@ -27,24 +27,24 @@ footer > h3 {
     padding: 5px;
 }
 
-header > div:nth-child(1) {
+header > div:first-child {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     column-gap: 10px;
 }
 
-header > div:nth-child(1) a {
+header > div:first-child a {
     text-decoration: none;
     align-self: center;
     color: rgb(72, 135, 253);
 }
 
-header > div:nth-child(1) a.btn {
+header > div:first-child a.btn {
     color: white;
     padding: 8px 13px;
 }
 
-header > div:nth-child(1) a:first-child:hover {
+header > div:first-child a:first-child:hover {
     background: rgb(52, 98, 182);
 }
 
@@ -70,7 +70,6 @@ header > div:last-of-type {
 .gallery {
     display: grid;
     margin-top: 10px;
-    width: auto;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(4, 100px);
     grid-template-areas:
@@ -139,13 +138,15 @@ main, .right-section, .left-section {
     align-items: center;
 }
 
-.articles > div img {
-    width: 100%;
-    max-width: 75px;
-    height: 75px; 
-    object-fit:cover;
-    border-radius: 50%;
+.articles > div div {
+    width: 60%;
+}
 
+.articles > div div img {
+    width: 100%;
+    object-fit:cover;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
 }
 
 .articles > div h1, p, .small-topic > p, h1, .topic p {
@@ -161,31 +162,39 @@ main, .right-section, .left-section {
 .topic {
     display: flex;
     flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
     padding: 5px;
     gap: 10px;
-    align-items: center;
     border: thin solid black;
 }
 
-.topic > img {
-    flex: 0 1 30%;
-    height: 150px;
-    object-fit:cover;
+.topic > div.img {
+    width: 30%;
 }
 
-.topic div {
-    flex: 0 1 69%;
+.topic > div.img img {
+    display: block;
+    width: 100%;
+    height: 0;
+    min-height: 100%;
+    object-fit: cover;
+}
+
+.topic div.txt {
+    flex: 0 1 70%;
+    justify-content: center;
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-.topic div .btn, .small-topic .btn {
+.topic div.txt .btn, .small-topic .btn {
     align-self: start;
     border: 2px solid black;
 }
 
-.topic:last-of-type div .btn, .small-topic:first-of-type .btn  {
+.topic:last-of-type div.txt .btn, .small-topic:first-of-type .btn  {
     align-self: end;
 }
 
@@ -197,16 +206,20 @@ main, .right-section, .left-section {
     border: thin solid;
     border-radius: 20px;
     padding: 15px;
-    gap: 5px;
+    gap: 10px;
     align-items: center;
 }
 
-.small-topic > img {
+.small-topic div {
     width: 65%;
-    align-self: center;
     height: 100px;
-    object-fit: cover;
     border-radius: 10px;
+}
+
+.small-topic div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 @media (max-width: 600px) {
@@ -266,8 +279,12 @@ main, .right-section, .left-section {
         flex-direction: column;
     }
 
-    .topic > img {
+    .topic div.img {
         width: 100%;
+    }
+
+    .topic div.img img {
+        height: auto;
     }
 
     footer {
